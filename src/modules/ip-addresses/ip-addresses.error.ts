@@ -1,7 +1,14 @@
-import { failedDependencyError } from '../../core/error-handling/error-list';
+import {
+  failedDependencyError,
+  notFoundError,
+} from '../../core/error-handling/error-list';
 
 const ipLookupFailed = () => {
   return failedDependencyError('The IP lookup failed.');
 };
 
-export default { ipLookupFailed };
+const noLookupToDelete = () => {
+  return notFoundError('The ip lookup not found for deleting.');
+};
+
+export default { ipLookupFailed, noLookupToDelete };

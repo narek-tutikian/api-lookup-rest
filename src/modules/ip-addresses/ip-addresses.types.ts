@@ -58,3 +58,5 @@ export type SecurityType = {
   tor: boolean;
   hosting: boolean;
 };
+
+export type IpLookupEntityType = { [ip: string]: IpAddressType };

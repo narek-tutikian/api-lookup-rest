@@ -10,9 +10,9 @@ Implement REST API that allows users to:
 
 ### Setup and run
 
- - Clone the repo from Github
- - run `yarn`
- - run `yarn start`
+- Clone the repo from Github
+- run `yarn`
+- run `yarn start`
 
 No need for additional DB setup, It is a file stored in the runtime
 

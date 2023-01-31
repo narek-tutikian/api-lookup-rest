@@ -31,4 +31,16 @@ export class IpAddressesService {
       throw ipAddressesError.ipLookupFailed();
     }
   }
+
+  static async deleteLookup(ip: string) {
+    try {
+      const isDeleted = await IpAddressRepository.delete(ip);
+      if(!isDeleted){
+        throw new Error();
+      }
+    } catch (error) {
+      throw ipAddressesError.noLookupToDelete();
+    }
+    return true;
+  }
 }
