@@ -163,8 +163,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# sonarQube
-.scannerwork
 src/routes.ts
 src/swagger.json
 
+/src/repositories/ipLookupsDb.json

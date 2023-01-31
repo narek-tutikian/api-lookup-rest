@@ -24,6 +24,6 @@ export class ipAddressesController extends Controller {
   async postSeedDeviceData(
     @Path('ip') ip: string,
   ) {
-    await IpAddressesService.getIpAddress(ip);
+    return await IpAddressesService.getIpAddress(ip);
   }
 }
