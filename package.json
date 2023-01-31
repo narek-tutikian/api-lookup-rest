@@ -6,7 +6,7 @@
     "generate-routes": "tsoa spec-and-routes",
     "start": "yarn generate-routes && ts-node src/server.ts",
     "format:write": "prettier --write .",
-    "test": "test"
+    "test": "yarn generate-routes && jest --detectOpenHandles --config jest-test.config.ts"
   },
   "author": "Narek Tutikyan",
   "license": "ISC",
@@ -28,6 +28,7 @@
     "@types/node-fetch": "2.x",
     "@types/swagger-ui-express": "^4.1.3",
     "prettier": "^2.8.3",
+    "ts-jest": "^29.0.5",
     "tsconfig-paths": "^3.14.1",
     "typescript": "^4.9.5"
   }
