@@ -5,12 +5,11 @@ export const getIpAddress: {
   params: ObjectSchema;
 } = {
   params: Joi.object().keys({
-    ip: Joi.string().ip({
-      version: [
-        'ipv4',
-        'ipv6'
-      ]
-    }).required()
+    ip: Joi.string()
+      .ip({
+        version: ['ipv4', 'ipv6'],
+      })
+      .required(),
   }),
 };
 

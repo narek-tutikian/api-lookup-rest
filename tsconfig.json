@@ -5,8 +5,7 @@
     "module": "commonjs",
     "rootDir": "src",
     "baseUrl": "./src",
-    "paths": {
-    },
+    "paths": {},
     "resolveJsonModule": true,
     "outDir": "build",
     "esModuleInterop": true,

@@ -1,20 +1,22 @@
 import fetch from 'node-fetch';
-import ipAddressesError from "./ip-addresses.error";
-import {IpAddressRepository} from "../../repositories/ip-address.repository";
-const ipwhoisBaseUrl = process.env.ipwhoisBaseUrl || 'http://ipwho.is'
+import ipAddressesError from './ip-addresses.error';
+import { IpAddressRepository } from '../../repositories/ip-address.repository';
+import { GetIpLookupDto } from './dtos/get-ip-lookup.dto';
+const ipwhoisBaseUrl = process.env.ipwhoisBaseUrl || 'http://ipwho.is';
 export class IpAddressesService {
-  static async getIpAddress(ip: string) {
+  static async getIpAddress(ip: string): Promise<GetIpLookupDto> {
     let ipLookup = await IpAddressRepository.find(ip);
     if (!ipLookup) {
-      ipLookup = await this.fetchIpInfo(ip)
-      await IpAddressRepository.storeLookup(ipLookup)
+      ipLookup = await this.fetchIpInfo(ip);
+      if (ipLookup) {
+        await IpAddressRepository.storeLookup(ipLookup);
+      }
     }
 
-    return ipLookup
+    return ipLookup as GetIpLookupDto;
   }
 
-
-  static async fetchIpInfo(ip: string){
+  static async fetchIpInfo(ip: string) {
     try {
       const res = await fetch(`${ipwhoisBaseUrl}/${ip}`, {
         headers: { 'Content-Type': 'application/json' },
@@ -25,8 +27,8 @@ export class IpAddressesService {
       }
       return await res.json();
     } catch (e: any) {
-      console.log(e)
+      console.log(e);
       throw ipAddressesError.ipLookupFailed();
     }
-  };
+  }
 }

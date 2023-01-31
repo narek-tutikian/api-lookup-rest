@@ -16,14 +16,10 @@ const notFoundError = (message: string): Error => {
 const unauthorizedError = (message: string): Error => {
   return new ApiError(httpStatus.UNAUTHORIZED, message);
 };
-const failedDependencyError = (
-  message: string
-): Error => {
+const failedDependencyError = (message: string): Error => {
   return new ApiError(httpStatus.FAILED_DEPENDENCY, message);
 };
-const requestEntityTooLargeError = (
-  message: string
-): Error => {
+const requestEntityTooLargeError = (message: string): Error => {
   return new ApiError(httpStatus.REQUEST_ENTITY_TOO_LARGE, message);
 };
 

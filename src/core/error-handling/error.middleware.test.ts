@@ -38,7 +38,6 @@ afterEach((done) => {
 });
 
 describe('Error Middleware', () => {
-
   test('should test errorConverter function (ValidateError)', async () => {
     errorConverter(
       new ValidateError({ test: { message: 'test' } }, 'test'),
