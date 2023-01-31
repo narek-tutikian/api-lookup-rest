@@ -35,7 +35,7 @@ export class IpAddressesService {
   static async deleteLookup(ip: string) {
     try {
       const isDeleted = await IpAddressRepository.delete(ip);
-      if(!isDeleted){
+      if (!isDeleted) {
         throw new Error();
       }
     } catch (error) {
