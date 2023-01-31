@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Test task for api Lookup",
   "scripts": {
+    "build": "yarn generate-routes && tsc",
     "generate-routes": "tsoa spec-and-routes",
     "start": "yarn generate-routes && ts-node src/server.ts",
     "format:write": "prettier --write .",
